@@ -1,0 +1,5 @@
+C:\Users\simeu\source\repos\Alpha\Shortener.Services\obj\Debug\net5.0\Shortener.Services.csprojAssemblyReference.cache
+C:\Users\simeu\source\repos\Alpha\Shortener.Services\obj\Debug\net5.0\Shortener.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\simeu\source\repos\Alpha\Shortener.Services\obj\Debug\net5.0\Shortener.Services.AssemblyInfoInputs.cache
+C:\Users\simeu\source\repos\Alpha\Shortener.Services\obj\Debug\net5.0\Shortener.Services.AssemblyInfo.cs
+C:\Users\simeu\source\repos\Alpha\Shortener.Services\obj\Debug\net5.0\Shortener.Services.csproj.CoreCompileInputs.cache

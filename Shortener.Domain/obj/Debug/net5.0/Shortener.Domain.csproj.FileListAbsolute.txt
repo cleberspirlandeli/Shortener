@@ -1,0 +1,12 @@
+C:\Users\simeu\source\repos\Alpha\Domain\bin\Debug\net5.0\Shortener.Domain.deps.json
+C:\Users\simeu\source\repos\Alpha\Domain\bin\Debug\net5.0\Shortener.Domain.dll
+C:\Users\simeu\source\repos\Alpha\Domain\bin\Debug\net5.0\ref\Shortener.Domain.dll
+C:\Users\simeu\source\repos\Alpha\Domain\bin\Debug\net5.0\Shortener.Domain.pdb
+C:\Users\simeu\source\repos\Alpha\Domain\obj\Debug\net5.0\Shortener.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\simeu\source\repos\Alpha\Domain\obj\Debug\net5.0\Shortener.Domain.AssemblyInfoInputs.cache
+C:\Users\simeu\source\repos\Alpha\Domain\obj\Debug\net5.0\Shortener.Domain.AssemblyInfo.cs
+C:\Users\simeu\source\repos\Alpha\Domain\obj\Debug\net5.0\Shortener.Domain.csproj.CoreCompileInputs.cache
+C:\Users\simeu\source\repos\Alpha\Domain\obj\Debug\net5.0\Shortener.Domain.dll
+C:\Users\simeu\source\repos\Alpha\Domain\obj\Debug\net5.0\ref\Shortener.Domain.dll
+C:\Users\simeu\source\repos\Alpha\Domain\obj\Debug\net5.0\Shortener.Domain.pdb
+C:\Users\simeu\source\repos\Alpha\Domain\obj\Debug\net5.0\Shortener.Domain.csprojAssemblyReference.cache

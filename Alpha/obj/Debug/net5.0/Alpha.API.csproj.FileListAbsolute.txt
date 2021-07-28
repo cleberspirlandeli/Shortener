@@ -1,0 +1,6 @@
+C:\Users\simeu\source\repos\Alpha\Alpha\obj\Debug\net5.0\Alpha.API.csprojAssemblyReference.cache
+C:\Users\simeu\source\repos\Alpha\Alpha\obj\Debug\net5.0\Alpha.API.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\simeu\source\repos\Alpha\Alpha\obj\Debug\net5.0\Alpha.API.AssemblyInfoInputs.cache
+C:\Users\simeu\source\repos\Alpha\Alpha\obj\Debug\net5.0\Alpha.API.AssemblyInfo.cs
+C:\Users\simeu\source\repos\Alpha\Alpha\obj\Debug\net5.0\Alpha.API.csproj.CoreCompileInputs.cache
+C:\Users\simeu\source\repos\Alpha\Alpha\obj\Debug\net5.0\Alpha.API.MvcApplicationPartsAssemblyInfo.cache
