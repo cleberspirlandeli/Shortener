@@ -1,4 +1,4 @@
-﻿using Domain.Modules;
+﻿using Shortener.Domain.Modules;
 using FluentValidation;
 using System;
 

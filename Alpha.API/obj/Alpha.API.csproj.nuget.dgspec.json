@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\simeu\\source\\repos\\Alpha\\Alpha\\Alpha.API.csproj": {}
+    "C:\\Users\\simeu\\source\\repos\\Alpha\\Alpha.API\\Alpha.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\simeu\\source\\repos\\Alpha\\Alpha\\Alpha.API.csproj": {
+    "C:\\Users\\simeu\\source\\repos\\Alpha\\Alpha.API\\Alpha.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\simeu\\source\\repos\\Alpha\\Alpha\\Alpha.API.csproj",
+        "projectUniqueName": "C:\\Users\\simeu\\source\\repos\\Alpha\\Alpha.API\\Alpha.API.csproj",
         "projectName": "Alpha.API",
-        "projectPath": "C:\\Users\\simeu\\source\\repos\\Alpha\\Alpha\\Alpha.API.csproj",
+        "projectPath": "C:\\Users\\simeu\\source\\repos\\Alpha\\Alpha.API\\Alpha.API.csproj",
         "packagesPath": "C:\\Users\\simeu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\simeu\\source\\repos\\Alpha\\Alpha\\obj\\",
+        "outputPath": "C:\\Users\\simeu\\source\\repos\\Alpha\\Alpha.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\simeu\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,11 +28,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\simeu\\source\\repos\\Alpha\\Domain\\Shortener.Domain.csproj": {
-                "projectPath": "C:\\Users\\simeu\\source\\repos\\Alpha\\Domain\\Shortener.Domain.csproj"
-              },
               "C:\\Users\\simeu\\source\\repos\\Alpha\\Shortener.Common\\Shortener.Common.csproj": {
                 "projectPath": "C:\\Users\\simeu\\source\\repos\\Alpha\\Shortener.Common\\Shortener.Common.csproj"
+              },
+              "C:\\Users\\simeu\\source\\repos\\Alpha\\Shortener.Domain\\Shortener.Domain.csproj": {
+                "projectPath": "C:\\Users\\simeu\\source\\repos\\Alpha\\Shortener.Domain\\Shortener.Domain.csproj"
               },
               "C:\\Users\\simeu\\source\\repos\\Alpha\\Shortener.Services\\Shortener.Services.csproj": {
                 "projectPath": "C:\\Users\\simeu\\source\\repos\\Alpha\\Shortener.Services\\Shortener.Services.csproj"
@@ -50,15 +50,7 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
-            "MassTransit": {
-              "target": "Package",
-              "version": "[7.2.1, )"
-            },
             "MassTransit.AspNetCore": {
-              "target": "Package",
-              "version": "[7.2.1, )"
-            },
-            "MassTransit.Extensions.DependencyInjection": {
               "target": "Package",
               "version": "[7.2.1, )"
             },
@@ -105,60 +97,6 @@
         }
       }
     },
-    "C:\\Users\\simeu\\source\\repos\\Alpha\\Domain\\Shortener.Domain.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\simeu\\source\\repos\\Alpha\\Domain\\Shortener.Domain.csproj",
-        "projectName": "Shortener.Domain",
-        "projectPath": "C:\\Users\\simeu\\source\\repos\\Alpha\\Domain\\Shortener.Domain.csproj",
-        "packagesPath": "C:\\Users\\simeu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\simeu\\source\\repos\\Alpha\\Domain\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\simeu\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net5.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net5.0": {
-            "targetAlias": "net5.0",
-            "projectReferences": {}
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net5.0": {
-          "targetAlias": "net5.0",
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
     "C:\\Users\\simeu\\source\\repos\\Alpha\\Shortener.Common\\Shortener.Common.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -182,7 +120,11 @@
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\simeu\\source\\repos\\Alpha\\Shortener.Domain\\Shortener.Domain.csproj": {
+                "projectPath": "C:\\Users\\simeu\\source\\repos\\Alpha\\Shortener.Domain\\Shortener.Domain.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -204,6 +146,60 @@
               "version": "[13.0.1, )"
             }
           },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\simeu\\source\\repos\\Alpha\\Shortener.Domain\\Shortener.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\simeu\\source\\repos\\Alpha\\Shortener.Domain\\Shortener.Domain.csproj",
+        "projectName": "Shortener.Domain",
+        "projectPath": "C:\\Users\\simeu\\source\\repos\\Alpha\\Shortener.Domain\\Shortener.Domain.csproj",
+        "packagesPath": "C:\\Users\\simeu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\simeu\\source\\repos\\Alpha\\Shortener.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\simeu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
           "imports": [
             "net461",
             "net462",
@@ -247,11 +243,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\simeu\\source\\repos\\Alpha\\Domain\\Shortener.Domain.csproj": {
-                "projectPath": "C:\\Users\\simeu\\source\\repos\\Alpha\\Domain\\Shortener.Domain.csproj"
-              },
               "C:\\Users\\simeu\\source\\repos\\Alpha\\Shortener.Common\\Shortener.Common.csproj": {
                 "projectPath": "C:\\Users\\simeu\\source\\repos\\Alpha\\Shortener.Common\\Shortener.Common.csproj"
+              },
+              "C:\\Users\\simeu\\source\\repos\\Alpha\\Shortener.Domain\\Shortener.Domain.csproj": {
+                "projectPath": "C:\\Users\\simeu\\source\\repos\\Alpha\\Shortener.Domain\\Shortener.Domain.csproj"
               }
             }
           }
@@ -270,7 +266,11 @@
               "target": "Package",
               "version": "[10.3.0, )"
             },
-            "MassTransit": {
+            "MassTransit.AspNetCore": {
+              "target": "Package",
+              "version": "[7.2.1, )"
+            },
+            "MassTransit.RabbitMQ": {
               "target": "Package",
               "version": "[7.2.1, )"
             },

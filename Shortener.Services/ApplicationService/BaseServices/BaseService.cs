@@ -1,7 +1,8 @@
-﻿using Shortener.Domain;
-using FluentValidation;
+﻿using FluentValidation;
 using FluentValidation.Results;
+using Shortener.Domain;
 using Shortener.Services.Notifications;
+
 using System;
 
 namespace Shortener.Services.ApplicationService.BaseServices

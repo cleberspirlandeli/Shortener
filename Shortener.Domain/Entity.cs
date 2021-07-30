@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Domain
+namespace Shortener.Domain
 {
     public abstract class Entity
     {

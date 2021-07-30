@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "iiddiO3ryEqrdy75MKTVRAI0E1FFPHekIzQXigh7ynKXQnmj4vywZrQtMdRr8NxVFNSXOsyL2T+tFc/+vA8EIA==",
+  "dgSpecHash": "54DmZjLJ7BIWWP6o446TnRo9aKAIopqjwyqJjKWjkJOUuNZxXLN74QWRizwf1ByvWu9hzbj4VQRUAUn9w4NlLQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\simeu\\source\\repos\\Alpha\\Domain\\Shortener.Domain.csproj",
+  "projectFilePath": "C:\\Users\\simeu\\source\\repos\\Alpha\\Shortener.Domain\\Shortener.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

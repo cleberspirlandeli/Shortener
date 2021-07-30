@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace Domain.Modules
+namespace Shortener.Domain.Modules
 {
     public class Url: Entity
     {

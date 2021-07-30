@@ -75,6 +75,16 @@
         "runtime": {
           "lib/netstandard2.0/System.Text.Encodings.Web.dll": {}
         }
+      },
+      "Shortener.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/Shortener.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Shortener.Domain.dll": {}
+        }
       }
     }
   },
@@ -213,12 +223,18 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "Shortener.Domain/1.0.0": {
+      "type": "project",
+      "path": "../Shortener.Domain/Shortener.Domain.csproj",
+      "msbuildProject": "../Shortener.Domain/Shortener.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
       "Microsoft.AspNetCore.Http.Abstractions >= 2.2.0",
-      "Newtonsoft.Json >= 13.0.1"
+      "Newtonsoft.Json >= 13.0.1",
+      "Shortener.Domain >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -247,7 +263,11 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\simeu\\source\\repos\\Alpha\\Shortener.Domain\\Shortener.Domain.csproj": {
+              "projectPath": "C:\\Users\\simeu\\source\\repos\\Alpha\\Shortener.Domain\\Shortener.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

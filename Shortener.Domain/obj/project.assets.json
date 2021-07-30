@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\simeu\\source\\repos\\Alpha\\Domain\\Shortener.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\simeu\\source\\repos\\Alpha\\Shortener.Domain\\Shortener.Domain.csproj",
       "projectName": "Shortener.Domain",
-      "projectPath": "C:\\Users\\simeu\\source\\repos\\Alpha\\Domain\\Shortener.Domain.csproj",
+      "projectPath": "C:\\Users\\simeu\\source\\repos\\Alpha\\Shortener.Domain\\Shortener.Domain.csproj",
       "packagesPath": "C:\\Users\\simeu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\simeu\\source\\repos\\Alpha\\Domain\\obj\\",
+      "outputPath": "C:\\Users\\simeu\\source\\repos\\Alpha\\Shortener.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\simeu\\AppData\\Roaming\\NuGet\\NuGet.Config",

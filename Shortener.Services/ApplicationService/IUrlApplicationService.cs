@@ -1,14 +1,13 @@
 ﻿using Shortener.Common.DTO;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using Shortener.Domain.Modules;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Shortener.Services.ApplicationService
 {
     public interface IUrlApplicationService
     {
-        Task<string> GenerateShorterUrl(UrlDto dto);
+        Task<string> GenerateShorterUrl(UrlDto dto, CancellationToken cancellationToken = default);
+        Task<string> RegisterUrl(Url url, CancellationToken cancellationToken = default);
     }
 }

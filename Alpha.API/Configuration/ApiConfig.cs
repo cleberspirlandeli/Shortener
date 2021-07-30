@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
+using RabbitMQ.Client;
 using Shortener.Common.Extensions;
 
 namespace Alpha.API.Configuration
@@ -54,14 +55,7 @@ namespace Alpha.API.Configuration
             #endregion
 
             #region MassTransit RabbitMQ
-            services.AddMassTransit(config =>
-            {
-                config.UsingRabbitMq((ctx, cfg) => {
-                    cfg.Host("amqp://guest:guest@localhost:5672");
-                });
-            });
-
-            services.AddMassTransitHostedService();
+            services.AddMassTransit(configuration);
             #endregion
 
             return services;

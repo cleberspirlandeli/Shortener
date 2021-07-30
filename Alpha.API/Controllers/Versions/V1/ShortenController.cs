@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 using Shortener.Common.DTO;
 using Shortener.Services.ApplicationService;
 using Shortener.Services.Notifications;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Alpha.API.Controllers.Versions.V1
@@ -16,6 +17,7 @@ namespace Alpha.API.Controllers.Versions.V1
         private readonly ILogger<ShortenController> _logger;
         private readonly IUrlApplicationService _appService;
 
+
         public ShortenController(
             IUrlApplicationService appService,
             INotification notifier,
@@ -26,9 +28,9 @@ namespace Alpha.API.Controllers.Versions.V1
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] UrlDto dto)
+        public async Task<IActionResult> Post([FromBody] UrlDto dto, CancellationToken cancellationToken)
         {
-            var result = await _appService.GenerateShorterUrl(dto);
+            var result = await _appService.GenerateShorterUrl(dto, cancellationToken);
             return CustomResponse(result);
         }
     }

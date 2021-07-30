@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "cdPO2Tvf9fmig8XgrypSw2ZxULdKzF5aUZPQLcCu0zxnJZDZTok0CWOwmpojQn8f9/aDDEmweuPbbMBziL013w==",
+  "dgSpecHash": "beL+aEcWzCIzDtSFct62WET1pc2z6DcBwybg55NvswMpe2gxbO2XJAtyGjRjPD22kdYb1P9e5kpndDzU1mYzTA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\simeu\\source\\repos\\Alpha\\Alpha\\Alpha.API.csproj",
+  "projectFilePath": "C:\\Users\\simeu\\source\\repos\\Alpha\\Alpha.API\\Alpha.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\simeu\\.nuget\\packages\\automatonymous\\5.1.1\\automatonymous.5.1.1.nupkg.sha512",
     "C:\\Users\\simeu\\.nuget\\packages\\fluentvalidation\\10.3.0\\fluentvalidation.10.3.0.nupkg.sha512",

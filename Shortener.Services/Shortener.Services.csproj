@@ -6,14 +6,16 @@
 
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="10.3.0" />
-    <PackageReference Include="MassTransit" Version="7.2.1" />
+    <PackageReference Include="MassTransit.AspNetCore" Version="7.2.1" />
+    <PackageReference Include="MassTransit.RabbitMQ" Version="7.2.1" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Domain\Shortener.Domain.csproj" />
+    <ProjectReference Include="..\Shortener.Domain\Shortener.Domain.csproj" />
     <ProjectReference Include="..\Shortener.Common\Shortener.Common.csproj" />
+    <ProjectReference Include="..\Shortener.Domain\Shortener.Domain.csproj" />
   </ItemGroup>
 
 </Project>
