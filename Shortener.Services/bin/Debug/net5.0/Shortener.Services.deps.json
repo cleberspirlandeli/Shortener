@@ -10,6 +10,7 @@
         "dependencies": {
           "FluentValidation": "10.3.0",
           "MassTransit.AspNetCore": "7.2.1",
+          "MassTransit.Extensions.DependencyInjection": "7.2.1",
           "MassTransit.RabbitMQ": "7.2.1",
           "Microsoft.Extensions.Configuration.Abstractions": "5.0.0",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "5.0.0",

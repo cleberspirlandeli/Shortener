@@ -2,8 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Shortener.Consumer.API.Consumers;
-using Shortener.Services.ApplicationService;
-using System;
+using Shortener.Consumer.API.Definitions;
 
 namespace Shortener.Consumer.API.Configurations
 {
@@ -11,19 +10,30 @@ namespace Shortener.Consumer.API.Configurations
     {
         public static IServiceCollection AddMassTransit(this IServiceCollection services, IConfiguration configuration)
         {
-
-
-            services.AddSingleton(provider => Bus.Factory.CreateUsingRabbitMq(cfg =>
+            services.AddMassTransit(x =>
             {
-                cfg.Host(configuration.GetConnectionString("RabbitMq"));
+                x.AddConsumer<UrlConsumer>(typeof(UrlConsumerDefinition));
 
-                cfg.ReceiveEndpoint("queue-url-shorten", e =>
+                x.SetKebabCaseEndpointNameFormatter();
+
+                x.UsingRabbitMq((ctx, cfg) =>
                 {
-                    e.Consumer<UrlConsumer>(provider);
-                });
-            }));
+                    cfg.ConfigureEndpoints(ctx);
+                    cfg.Host("amqp://guest:guest@localhost:5672");
 
-            services.AddMassTransitHostedService();
+                    cfg.ReceiveEndpoint("queue-url-shorten", c =>
+                    {
+                        c.ConfigureConsumer<UrlConsumer>(ctx);
+                    });
+
+                });
+            });
+
+            var provider = services.BuildServiceProvider();
+
+            var busControl = provider.GetRequiredService<IBusControl>();
+
+            busControl.StartAsync();
 
             return services;
         }
