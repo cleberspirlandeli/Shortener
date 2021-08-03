@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Shortener.Domain.Modules
 {
-    public class Url: Entity
+    public class Url : Entity
     {
         // Properties
         public string MainDestinationUrl { get; private set; }
@@ -18,13 +18,15 @@ namespace Shortener.Domain.Modules
         // Constructors
         public Url(string mainDestinationUrl)
         {
-            MainDestinationUrl = mainDestinationUrl;
+            MainDestinationUrl = GenerateUrl(mainDestinationUrl);
             KeyUrl = GenerateKeyUrl();
             // TODO: Validations
         }
 
+
+
         // Methods
-        public string GetId() => Id.ToString(); //Id.ToString("N");
+        public string GetId() => Id.ToString();
         public void ResetDayCounter() => DayCounter = 10;
         public void ResetWeekCounter() => WeekCounter = 50;
         public void ResetAmountCounter() => AmountCounter = 100;
@@ -37,6 +39,9 @@ namespace Shortener.Domain.Modules
             YearCounter += 1;
         }
 
+        private string GenerateUrl(string url)
+            => (url.StartsWith("https://") || url.StartsWith("http://")) ? url : $"http://{url}";
+
         private protected string GenerateKeyUrl()
         {
             var text = string.Empty;
@@ -46,7 +51,8 @@ namespace Shortener.Domain.Modules
                 if (IsNumber())
                 {
                     text += GetRandomNumber();
-                } else
+                }
+                else
                 {
                     if (IsCapital()) text += GetRandomString().ToUpper();
                     else text += GetRandomString().ToLower();
@@ -63,7 +69,7 @@ namespace Shortener.Domain.Modules
         private bool IsCapital() => Randomic();
         private bool Randomic() => random.Next(2) == 1;
         private int GetRandomNumber() => random.Next(10);
-        
+
         private string GetRandomString()
         {
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";

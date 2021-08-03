@@ -16,9 +16,6 @@ namespace Shortener.Domain
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
 
-        //public ObjectId Id { get; set; }
-        //public ObjectId _id { get; set; }
-        //public Guid Id { get; private set; }
         public DateTime CreatedAt { get; private set; }
     }
 }

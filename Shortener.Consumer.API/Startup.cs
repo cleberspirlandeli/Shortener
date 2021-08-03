@@ -12,6 +12,7 @@ using Shortener.Consumer.API.Configurations;
 using Shortener.Domain;
 using Shortener.Infrastructure.Persistence.Repository;
 using Shortener.Services.ApplicationService;
+using Shortener.Services.DependencyInjection;
 using Shortener.Services.Notifications;
 using System;
 using System.Collections.Generic;
@@ -39,11 +40,8 @@ namespace Shortener.Consumer.API
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Shortener.Consumer.API", Version = "v1" });
             });
 
-            services.AddScoped<IUrlApplicationService, UrlApplicationService>();
-            services.AddScoped<INotification, Notification>();
-            services.AddScoped<UrlRepository>();
-            services.AddScoped<IUrlShortenMongoDbSettings, UrlShortenMongoDbSettings>();
-
+            //services.WebApiConfiguration(Configuration);
+            ConfigureBindingsDependencyInjection.RegisterBindings(services, Configuration);
 
             services.AddMassTransit(Configuration);
         }

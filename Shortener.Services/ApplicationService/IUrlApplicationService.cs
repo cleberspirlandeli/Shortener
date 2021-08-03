@@ -9,7 +9,7 @@ namespace Shortener.Services.ApplicationService
     public interface IUrlApplicationService
     {
         Task<string> GenerateShorterUrl(UrlDto dto, CancellationToken cancellationToken = default);
-        Task<string> RegisterUrl(Url url, CancellationToken cancellationToken = default);
+        void RegisterUrl(Url url, CancellationToken cancellationToken = default);
         Task<List<Url>> GetUrl();
         Task<Url> GetUrlByKey(string id);
     }

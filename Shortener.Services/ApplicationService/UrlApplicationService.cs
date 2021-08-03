@@ -41,11 +41,9 @@ namespace Shortener.Services.ApplicationService
             return $"rzn.cc/{url.KeyUrl}";
         }
 
-        public async Task<string> RegisterUrl(Url url, CancellationToken cancellationToken = default)
+        public void RegisterUrl(Url url, CancellationToken cancellationToken = default)
         {
-
-            var result = await _urlRepository.GetAll();
-            return url.MainDestinationUrl;
+            _urlRepository.Create(url);
         }
 
         public async Task<List<Url>> GetUrl()
@@ -56,7 +54,11 @@ namespace Shortener.Services.ApplicationService
 
         public async Task<Url> GetUrlByKey(string id)
         {
+            // TODO: Verify if exists in to redis
+
             var result = await _urlRepository.GetUrlByKey(id);
+
+            // TODO: Publish a message for change informations at url
             return result;
         }
 

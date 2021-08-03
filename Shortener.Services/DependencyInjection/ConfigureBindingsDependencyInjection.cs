@@ -13,6 +13,7 @@ namespace Shortener.Services.DependencyInjection
         public static void RegisterBindings(IServiceCollection services, IConfiguration configuration)
         {
             // MongoDB Config
+            //services.AddScoped<IUrlApplicationService, UrlApplicationService>();
             services.Configure<UrlShortenMongoDbSettings>(configuration.GetSection(nameof(UrlShortenMongoDbSettings)));
             services.AddSingleton<IUrlShortenMongoDbSettings>(sp =>
                 sp.GetRequiredService<IOptions<UrlShortenMongoDbSettings>>().Value);

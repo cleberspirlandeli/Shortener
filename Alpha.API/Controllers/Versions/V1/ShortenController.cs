@@ -41,11 +41,11 @@ namespace Alpha.API.Controllers.Versions.V1
             return CustomResponse(result);
         }
 
-        [HttpGet("id")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetUrlByKey(string id, CancellationToken cancellationToken = default)
         {
             var result = await _appService.GetUrlByKey(id);
-            return CustomResponse(result);
+            return Redirect(result.MainDestinationUrl);
         }
     }
 }
