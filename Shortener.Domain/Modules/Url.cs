@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+using System;
 using System.Linq;
 
 namespace Shortener.Domain.Modules
@@ -22,7 +24,7 @@ namespace Shortener.Domain.Modules
         }
 
         // Methods
-        public string GetId() => Id.ToString("N");
+        public string GetId() => Id.ToString(); //Id.ToString("N");
         public void ResetDayCounter() => DayCounter = 10;
         public void ResetWeekCounter() => WeekCounter = 50;
         public void ResetAmountCounter() => AmountCounter = 100;

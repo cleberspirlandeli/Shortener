@@ -28,9 +28,23 @@ namespace Alpha.API.Controllers.Versions.V1
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] UrlDto dto, CancellationToken cancellationToken)
+        public async Task<IActionResult> Post([FromBody] UrlDto dto, CancellationToken cancellationToken = default)
         {
             var result = await _appService.GenerateShorterUrl(dto, cancellationToken);
+            return CustomResponse(result);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Get(CancellationToken cancellationToken = default)
+        {
+            var result = await _appService.GetUrl();
+            return CustomResponse(result);
+        }
+
+        [HttpGet("id")]
+        public async Task<IActionResult> GetUrlByKey(string id, CancellationToken cancellationToken = default)
+        {
+            var result = await _appService.GetUrlByKey(id);
             return CustomResponse(result);
         }
     }

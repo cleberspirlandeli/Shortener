@@ -1,0 +1,15 @@
+C:\Users\simeu\source\repos\Alpha\Shortener.Infrastructure\obj\Debug\net5.0\Shortener.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\simeu\source\repos\Alpha\Shortener.Infrastructure\obj\Debug\net5.0\Shortener.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\simeu\source\repos\Alpha\Shortener.Infrastructure\obj\Debug\net5.0\Shortener.Infrastructure.AssemblyInfo.cs
+C:\Users\simeu\source\repos\Alpha\Shortener.Infrastructure\obj\Debug\net5.0\Shortener.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\simeu\source\repos\Alpha\Shortener.Infrastructure\obj\Debug\net5.0\Shortener.Infrastructure.csprojAssemblyReference.cache
+C:\Users\simeu\source\repos\Alpha\Shortener.Infrastructure\bin\Debug\net5.0\Shortener.Infrastructure.deps.json
+C:\Users\simeu\source\repos\Alpha\Shortener.Infrastructure\bin\Debug\net5.0\Shortener.Infrastructure.dll
+C:\Users\simeu\source\repos\Alpha\Shortener.Infrastructure\bin\Debug\net5.0\ref\Shortener.Infrastructure.dll
+C:\Users\simeu\source\repos\Alpha\Shortener.Infrastructure\bin\Debug\net5.0\Shortener.Infrastructure.pdb
+C:\Users\simeu\source\repos\Alpha\Shortener.Infrastructure\bin\Debug\net5.0\Shortener.Domain.dll
+C:\Users\simeu\source\repos\Alpha\Shortener.Infrastructure\bin\Debug\net5.0\Shortener.Domain.pdb
+C:\Users\simeu\source\repos\Alpha\Shortener.Infrastructure\obj\Debug\net5.0\Shortener.Infrastructure.csproj.CopyComplete
+C:\Users\simeu\source\repos\Alpha\Shortener.Infrastructure\obj\Debug\net5.0\Shortener.Infrastructure.dll
+C:\Users\simeu\source\repos\Alpha\Shortener.Infrastructure\obj\Debug\net5.0\ref\Shortener.Infrastructure.dll
+C:\Users\simeu\source\repos\Alpha\Shortener.Infrastructure\obj\Debug\net5.0\Shortener.Infrastructure.pdb

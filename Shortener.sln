@@ -13,9 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Alpha.API", "Alpha.API\Alph
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shortener.Domain", "Shortener.Domain\Shortener.Domain.csproj", "{25559285-735E-47A3-B83A-EE2A11372D70}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shortener.Consumer", "Shortener.Consumer\Shortener.Consumer.csproj", "{3A81FBA5-C45D-4654-A71F-50587129193B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shortener.Consumer", "Shortener.Consumer\Shortener.Consumer.csproj", "{3A81FBA5-C45D-4654-A71F-50587129193B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shortener.Consumer.API", "Shortener.Consumer.API\Shortener.Consumer.API.csproj", "{25F1184A-67A9-4ABC-8CCF-01A52EF5C905}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shortener.Consumer.API", "Shortener.Consumer.API\Shortener.Consumer.API.csproj", "{25F1184A-67A9-4ABC-8CCF-01A52EF5C905}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shortener.Infrastructure", "Shortener.Infrastructure\Shortener.Infrastructure.csproj", "{D542BF2C-B6AB-482D-8532-27BCBD958BE4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{25F1184A-67A9-4ABC-8CCF-01A52EF5C905}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{25F1184A-67A9-4ABC-8CCF-01A52EF5C905}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{25F1184A-67A9-4ABC-8CCF-01A52EF5C905}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D542BF2C-B6AB-482D-8532-27BCBD958BE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D542BF2C-B6AB-482D-8532-27BCBD958BE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D542BF2C-B6AB-482D-8532-27BCBD958BE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D542BF2C-B6AB-482D-8532-27BCBD958BE4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

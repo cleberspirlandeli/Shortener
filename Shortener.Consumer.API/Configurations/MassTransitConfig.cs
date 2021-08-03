@@ -12,28 +12,21 @@ namespace Shortener.Consumer.API.Configurations
         {
             services.AddMassTransit(x =>
             {
-                x.AddConsumer<UrlConsumer>(typeof(UrlConsumerDefinition));
 
-                x.SetKebabCaseEndpointNameFormatter();
+                x.AddConsumer<UrlConsumer>();
 
-                x.UsingRabbitMq((ctx, cfg) =>
+                x.UsingRabbitMq((context, cfg) =>
                 {
-                    cfg.ConfigureEndpoints(ctx);
-                    cfg.Host("amqp://guest:guest@localhost:5672");
+                    cfg.Host(configuration.GetConnectionString("RabbitMq"));
 
-                    cfg.ReceiveEndpoint("queue-url-shorten", c =>
+                    cfg.ReceiveEndpoint("queue-url-shorten", e =>
                     {
-                        c.ConfigureConsumer<UrlConsumer>(ctx);
+                        e.ConfigureConsumer<UrlConsumer>(context);
                     });
-
                 });
             });
 
-            var provider = services.BuildServiceProvider();
-
-            var busControl = provider.GetRequiredService<IBusControl>();
-
-            busControl.StartAsync();
+            services.AddMassTransitHostedService();
 
             return services;
         }

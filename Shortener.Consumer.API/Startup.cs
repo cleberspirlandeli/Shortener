@@ -9,7 +9,10 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Shortener.Consumer.API.Configurations;
+using Shortener.Domain;
+using Shortener.Infrastructure.Persistence.Repository;
 using Shortener.Services.ApplicationService;
+using Shortener.Services.Notifications;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,7 +40,10 @@ namespace Shortener.Consumer.API
             });
 
             services.AddScoped<IUrlApplicationService, UrlApplicationService>();
-            services.AddScoped<IPublishEndpoint>();
+            services.AddScoped<INotification, Notification>();
+            services.AddScoped<UrlRepository>();
+            services.AddScoped<IUrlShortenMongoDbSettings, UrlShortenMongoDbSettings>();
+
 
             services.AddMassTransit(Configuration);
         }

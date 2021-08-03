@@ -1,6 +1,9 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
+using Shortener.Domain;
 using Shortener.Services.DependencyInjection.ApplicationServiceInjection;
+using Shortener.Services.DependencyInjection.RepositoryInjection;
 using Shortener.Services.Notifications;
 
 namespace Shortener.Services.DependencyInjection
@@ -9,6 +12,11 @@ namespace Shortener.Services.DependencyInjection
     {
         public static void RegisterBindings(IServiceCollection services, IConfiguration configuration)
         {
+            // MongoDB Config
+            services.Configure<UrlShortenMongoDbSettings>(configuration.GetSection(nameof(UrlShortenMongoDbSettings)));
+            services.AddSingleton<IUrlShortenMongoDbSettings>(sp =>
+                sp.GetRequiredService<IOptions<UrlShortenMongoDbSettings>>().Value);
+
             #region Others
             services.AddScoped<INotification, Notification>();
             #endregion
@@ -18,6 +26,7 @@ namespace Shortener.Services.DependencyInjection
             #endregion
 
             #region Repositories
+            ConfigureBindingsRepository.RegisterBindings(services, configuration);
             #endregion
         }
     }

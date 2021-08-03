@@ -11,12 +11,14 @@
     <PackageReference Include="MassTransit.RabbitMQ" Version="7.2.1" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Shortener.Domain\Shortener.Domain.csproj" />
     <ProjectReference Include="..\Shortener.Common\Shortener.Common.csproj" />
     <ProjectReference Include="..\Shortener.Domain\Shortener.Domain.csproj" />
+    <ProjectReference Include="..\Shortener.Infrastructure\Shortener.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

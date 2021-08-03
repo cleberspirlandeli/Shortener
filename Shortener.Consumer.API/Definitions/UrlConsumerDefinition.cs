@@ -12,7 +12,7 @@ namespace Shortener.Consumer.API.Definitions
         {
             // override the default endpoint name, for whatever reason
             // override the default endpoint name, for whatever reason
-            EndpointName = "url-queue";
+            EndpointName = "queue-url-shorten";
 
             // limit the number of messages consumed concurrently
             // this applies to the consumer only, not the endpoint
