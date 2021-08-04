@@ -45,7 +45,15 @@ namespace Alpha.API.Controllers.Versions.V1
         public async Task<IActionResult> GetUrlByKey(string id, CancellationToken cancellationToken = default)
         {
             var result = await _appService.GetUrlByKey(id);
-            return Redirect(result.MainDestinationUrl);
+
+            if (string.IsNullOrEmpty(result))
+            {
+                return CustomResponse();
+            }
+            else
+            {
+                return Redirect(result);
+            }
         }
     }
 }

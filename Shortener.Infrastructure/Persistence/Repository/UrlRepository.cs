@@ -13,7 +13,7 @@ namespace Shortener.Infrastructure.Persistence.Repository
     {
         public UrlRepository(IUrlShortenMongoDbSettings settings) : base(settings) { }
 
-        public async Task<Url> GetUrlByKey(string id) =>
-           await _dbSet.Find(db => db.KeyUrl == id).FirstOrDefaultAsync();
+        public async Task<Url> GetUrlByKey(string keyUrl) =>
+           await _dbSet.Find(db => db.KeyUrl == keyUrl).FirstOrDefaultAsync();
     }
 }

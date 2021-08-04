@@ -18,22 +18,22 @@ namespace Shortener.Consumer.Consumers
         public Task Consume(ConsumeContext<IUrlEvent> context)
         {
 
-            var serviceProvider = new ServiceCollection()
-                //.AddSingleton<IUrlApplicationService, UrlApplicationService>()
-                .AddSingleton<UrlService>()
-                .BuildServiceProvider();
+            //var serviceProvider = new ServiceCollection()
+            //    //.AddSingleton<IUrlApplicationService, UrlApplicationService>()
+            //    .AddSingleton<UrlService>()
+            //    .BuildServiceProvider();
 
-            var _urlApplicationService = serviceProvider.GetService<UrlService>();
+            //var _urlApplicationService = serviceProvider.GetService<UrlService>();
 
 
-            var url = context.Message.Url;
-            _urlApplicationService.RegisterUrl(url);
+            //var url = context.Message.Url;
             //_urlApplicationService.RegisterUrl(url);
+            ////_urlApplicationService.RegisterUrl(url);
 
 
-            var idMessage = context.Message.IdMessage;
-            var keyUrl = context.Message.Url.KeyUrl;
-            Console.WriteLine($"Nova mensagem recebida: [{idMessage}] - {keyUrl}");
+            //var idMessage = context.Message.IdMessage;
+            //var keyUrl = context.Message.Url.KeyUrl;
+            //Console.WriteLine($"Nova mensagem recebida: [{idMessage}] - {keyUrl}");
             return Task.CompletedTask;
         }
     }

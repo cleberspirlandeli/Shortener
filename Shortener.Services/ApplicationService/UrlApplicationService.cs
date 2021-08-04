@@ -1,10 +1,12 @@
-﻿using MassTransit;
+﻿using FluentValidation;
+using MassTransit;
 using Shortener.Common.DTO;
 using Shortener.Common.Events;
 using Shortener.Common.Events.IEvents;
 using Shortener.Domain.Modules;
 using Shortener.Infrastructure.Persistence.Repository;
 using Shortener.Services.ApplicationService.BaseServices;
+using Shortener.Services.Cache;
 using Shortener.Services.Notifications;
 using Shortener.Services.Validations;
 using System;
@@ -18,12 +20,16 @@ namespace Shortener.Services.ApplicationService
     {
         private readonly IPublishEndpoint _endpoint;
         private readonly UrlRepository _urlRepository;
+        private readonly ICacheService _cacheService;
+
         public UrlApplicationService(UrlRepository urlRepository, 
+            ICacheService cacheService,
             IPublishEndpoint endpoint, 
             INotification notification) : base(notification)
         {
             _endpoint = endpoint;
             _urlRepository = urlRepository;
+            _cacheService = cacheService;
         }
 
         public async Task<string> GenerateShorterUrl(UrlDto dto, CancellationToken cancellationToken = default)
@@ -52,15 +58,31 @@ namespace Shortener.Services.ApplicationService
             return result;
         }
 
-        public async Task<Url> GetUrlByKey(string id)
+        public async Task<string> GetUrlByKey(string keyUrl)
         {
-            // TODO: Verify if exists in to redis
+            if (!ExecuteValidations(keyUrl)) return string.Empty;
 
-            var result = await _urlRepository.GetUrlByKey(id);
+            // Verify if exists in Redis
+            var haveUrlInRedis = await _cacheService.GetCacheValue<string>($"key-{keyUrl}");
+            if (!string.IsNullOrEmpty(haveUrlInRedis)) return haveUrlInRedis;
+
+            var result = await _urlRepository.GetUrlByKey(keyUrl);
 
             // TODO: Publish a message for change informations at url
-            return result;
+            return string.IsNullOrEmpty(result.MainDestinationUrl) ? string.Empty : result.MainDestinationUrl;
         }
 
+
+        private bool ExecuteValidations(string text)
+        {
+            var validacao = new KeyUrlValidation();
+            var validator = validacao.Validate(text);
+
+            if (validator.IsValid) return true;
+
+            NotifyError(validator);
+
+            return false;
+        }
     }
 }

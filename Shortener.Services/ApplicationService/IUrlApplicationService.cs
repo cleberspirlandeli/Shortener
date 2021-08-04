@@ -11,6 +11,6 @@ namespace Shortener.Services.ApplicationService
         Task<string> GenerateShorterUrl(UrlDto dto, CancellationToken cancellationToken = default);
         void RegisterUrl(Url url, CancellationToken cancellationToken = default);
         Task<List<Url>> GetUrl();
-        Task<Url> GetUrlByKey(string id);
+        Task<string> GetUrlByKey(string keyUrl);
     }
 }
