@@ -1,13 +1,12 @@
 ﻿using Shortener.Common.DTO;
-using Shortener.Domain.Modules;
 using System;
 
 namespace Shortener.Common.Events.IEvents
 {
-    public interface IUrlEvent
+    public interface IUrlUpdateInfoEvent
     {
         Guid IdMessage { get; set; }
         DateTime CreatedAt { get; set; }
-        Url Data { get; set; }
+        UrlUpdateInfoDto Data { get; set; }
     }
 }

@@ -22,9 +22,9 @@ namespace Shortener.Services.ApplicationService
         private readonly UrlRepository _urlRepository;
         private readonly ICacheService _cacheService;
 
-        public UrlApplicationService(UrlRepository urlRepository, 
+        public UrlApplicationService(UrlRepository urlRepository,
             ICacheService cacheService,
-            IPublishEndpoint endpoint, 
+            IPublishEndpoint endpoint,
             INotification notification) : base(notification)
         {
             _endpoint = endpoint;
@@ -37,11 +37,11 @@ namespace Shortener.Services.ApplicationService
             var url = new Url(dto.MainDestinationUrl);
             if (!ExecuteValidations(new UrlValidation(), url)) return string.Empty;
 
-            await _endpoint.Publish<IUrlEvent>(new UrlEvent 
+            await _endpoint.Publish<IUrlEvent>(new UrlEvent
             {
                 IdMessage = Guid.NewGuid(),
                 CreatedAt = DateTime.Now,
-                Url = url
+                Data = url
             }, cancellationToken);
 
             return $"rzn.cc/{url.KeyUrl}";
@@ -54,24 +54,57 @@ namespace Shortener.Services.ApplicationService
 
         public async Task<List<Url>> GetUrl()
         {
-            var result = await _urlRepository.GetAll();
+            var result = await _urlRepository.GetAllAsync();
             return result;
         }
 
         public async Task<string> GetUrlByKey(string keyUrl)
         {
+            var url = string.Empty;
+            var id = string.Empty;
+
             if (!ExecuteValidations(keyUrl)) return string.Empty;
 
             // Verify if exists in Redis
-            var haveUrlInRedis = await _cacheService.GetCacheValue<string>($"key-{keyUrl}");
-            if (!string.IsNullOrEmpty(haveUrlInRedis)) return haveUrlInRedis;
+            var haveUrlInRedis = await _cacheService.GetCacheValue<UrlUpdateInfoDto>($"key-{keyUrl}");
 
-            var result = await _urlRepository.GetUrlByKey(keyUrl);
+            if (haveUrlInRedis is not null
+                && !string.IsNullOrEmpty(haveUrlInRedis.MainDestinationUrl)
+                && !string.IsNullOrEmpty(haveUrlInRedis.Id))
+            {
+                url = haveUrlInRedis.MainDestinationUrl;
+                id = haveUrlInRedis.Id;
+            }
+            else
+            {
+                var dbUrl = await _urlRepository.GetUrlByKey(keyUrl);
+                url = dbUrl.MainDestinationUrl ?? string.Empty;
+                id = dbUrl.Id ?? string.Empty;
+            }
 
-            // TODO: Publish a message for change informations at url
-            return string.IsNullOrEmpty(result.MainDestinationUrl) ? string.Empty : result.MainDestinationUrl;
+            if (!string.IsNullOrEmpty(id))
+            {
+                await _endpoint.Publish<IUrlUpdateInfoEvent>(new UrlUpdateInfoEvent
+                {
+                    IdMessage = Guid.NewGuid(),
+                    CreatedAt = DateTime.Now,
+                    Data = new UrlUpdateInfoDto { Id = id }
+                });
+            }
+
+            return url;
         }
 
+        public async Task UrlUpdateInfo(UrlUpdateInfoDto dto)
+        {
+
+            var url = await _urlRepository.GetByIdAsync(dto.Id);
+            if(url is not null)
+            {
+                url.IncrementDayCounter();
+                _urlRepository.UpdateAsync(dto.Id, url);
+            }
+        }
 
         private bool ExecuteValidations(string text)
         {
@@ -84,5 +117,6 @@ namespace Shortener.Services.ApplicationService
 
             return false;
         }
+
     }
 }

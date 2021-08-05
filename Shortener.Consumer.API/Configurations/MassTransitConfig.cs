@@ -14,6 +14,7 @@ namespace Shortener.Consumer.API.Configurations
             {
 
                 x.AddConsumer<UrlConsumer>();
+                x.AddConsumer<UrlUpdateInfoConsumer>();
 
                 x.UsingRabbitMq((context, cfg) =>
                 {
@@ -22,6 +23,11 @@ namespace Shortener.Consumer.API.Configurations
                     cfg.ReceiveEndpoint("queue-url-shorten", e =>
                     {
                         e.ConfigureConsumer<UrlConsumer>(context);
+                    });
+
+                    cfg.ReceiveEndpoint("queue-url-update-info", e =>
+                    {
+                        e.ConfigureConsumer<UrlUpdateInfoConsumer>(context);
                     });
                 });
             });

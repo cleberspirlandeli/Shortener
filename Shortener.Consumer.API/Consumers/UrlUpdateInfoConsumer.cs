@@ -5,15 +5,15 @@ using System.Threading.Tasks;
 
 namespace Shortener.Consumer.API.Consumers
 {
-    public class UrlConsumer : IConsumer<IUrlEvent>
+    public class UrlUpdateInfoConsumer : IConsumer<IUrlUpdateInfoEvent>
     {
         private readonly IUrlApplicationService _urlApplicationService;
-        public UrlConsumer(IUrlApplicationService urlApplicationService) 
+        public UrlUpdateInfoConsumer(IUrlApplicationService urlApplicationService)
             => _urlApplicationService = urlApplicationService;
 
-        public Task Consume(ConsumeContext<IUrlEvent> context)
+        public Task Consume(ConsumeContext<IUrlUpdateInfoEvent> context)
         {
-            _urlApplicationService.RegisterUrl(context.Message.Data);
+            _urlApplicationService.UrlUpdateInfo(context.Message.Data);
 
             return Task.CompletedTask;
         }

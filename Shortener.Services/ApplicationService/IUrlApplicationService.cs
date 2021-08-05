@@ -12,5 +12,6 @@ namespace Shortener.Services.ApplicationService
         void RegisterUrl(Url url, CancellationToken cancellationToken = default);
         Task<List<Url>> GetUrl();
         Task<string> GetUrlByKey(string keyUrl);
+        Task UrlUpdateInfo(UrlUpdateInfoDto dto);
     }
 }
