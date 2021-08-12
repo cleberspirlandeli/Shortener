@@ -46,19 +46,19 @@ namespace Shortener.Infrastructure.Persistence.Repository
         public void Update(string id, TEntity dbIn) =>
             _dbSet.ReplaceOne(db => db.Id == id, dbIn);
 
-        public async void UpdateAsync(string id, TEntity dbIn) =>
+        public async Task UpdateAsync(string id, TEntity dbIn) =>
            await _dbSet.ReplaceOneAsync(db => db.Id == id, dbIn);
 
         public void Remove(TEntity dbIn) =>
             _dbSet.DeleteOne(db => db.Id == dbIn.Id);
 
-        public async void RemoveAsync(TEntity dbIn) =>
+        public async Task RemoveAsync(TEntity dbIn) =>
             await _dbSet.DeleteOneAsync(db => db.Id == dbIn.Id);
 
         public void Remove(string id) =>
             _dbSet.DeleteOne(db => db.Id == id);
 
-        public async void RemoveAsync(string id) =>
+        public async Task RemoveAsync(string id) =>
             await _dbSet.DeleteOneAsync(db => db.Id == id);
     }
 }

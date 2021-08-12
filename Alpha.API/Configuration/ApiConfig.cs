@@ -1,12 +1,11 @@
-﻿using MassTransit;
+﻿using Alpha.API.ScheduledServices;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.OpenApi.Models;
-using RabbitMQ.Client;
 using Shortener.Common.Extensions;
+using System;
 
 namespace Alpha.API.Configuration
 {
@@ -56,6 +55,14 @@ namespace Alpha.API.Configuration
 
             #region MassTransit RabbitMQ
             services.AddMassTransit(configuration);
+            #endregion
+
+            #region Scheduled JOBS
+            services.AddCronJob<UpdateDailyCounterCronJob>(c =>
+            {
+                c.TimeZoneInfo = TimeZoneInfo.Local;
+                c.CronExpression = @"* * * * *";
+            });
             #endregion
 
             return services;

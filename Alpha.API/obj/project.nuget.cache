@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "yp3t1+MCvFQkGTu3nwe1Upvst+2QrskVvoPWDILTw1x51FSypS7989KK9Tcxzctoaeky0lhoPbDFE23sf2gcUw==",
+  "dgSpecHash": "lZW8p67/dTbQjMmz06NAhPBxUdYErMCKCOvZh4Opqs1i8rd7qWjeUCUnLUE1p/Yr9wEMSbPRGrOmqvr8k7oj+A==",
   "success": true,
   "projectFilePath": "C:\\Users\\simeu\\source\\repos\\Alpha\\Alpha.API\\Alpha.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\simeu\\.nuget\\packages\\automatonymous\\5.1.1\\automatonymous.5.1.1.nupkg.sha512",
+    "C:\\Users\\simeu\\.nuget\\packages\\cronos\\0.7.1\\cronos.0.7.1.nupkg.sha512",
     "C:\\Users\\simeu\\.nuget\\packages\\dnsclient\\1.4.0\\dnsclient.1.4.0.nupkg.sha512",
     "C:\\Users\\simeu\\.nuget\\packages\\fluentvalidation\\10.3.0\\fluentvalidation.10.3.0.nupkg.sha512",
     "C:\\Users\\simeu\\.nuget\\packages\\greenpipes\\4.0.0\\greenpipes.4.0.0.nupkg.sha512",

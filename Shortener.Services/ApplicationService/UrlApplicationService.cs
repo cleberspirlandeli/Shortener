@@ -102,7 +102,7 @@ namespace Shortener.Services.ApplicationService
             if(url is not null)
             {
                 url.IncrementDayCounter();
-                _urlRepository.UpdateAsync(dto.Id, url);
+                await _urlRepository.UpdateAsync(dto.Id, url);
             }
         }
 

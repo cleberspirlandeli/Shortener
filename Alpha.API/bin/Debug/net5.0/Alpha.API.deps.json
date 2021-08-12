@@ -33,6 +33,7 @@
     ".NETCoreApp,Version=v5.0": {
       "Alpha.API/1.0.0": {
         "dependencies": {
+          "Cronos": "0.7.1",
           "MassTransit.AspNetCore": "7.2.1",
           "MassTransit.RabbitMQ": "7.2.1",
           "Microsoft.AspNetCore.Mvc.Versioning": "5.0.0",
@@ -346,6 +347,17 @@
         },
         "compile": {
           "lib/netstandard2.0/Automatonymous.dll": {}
+        }
+      },
+      "Cronos/0.7.1": {
+        "runtime": {
+          "lib/netstandard2.0/Cronos.dll": {
+            "assemblyVersion": "0.7.1.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Cronos.dll": {}
         }
       },
       "DnsClient/1.4.0": {
@@ -3324,6 +3336,13 @@
       "sha512": "sha512-Cyzi+JrQ0f2GF9ouy2DptdCPQVGrWSl0oFI//GokvKilgjaffuGd/jm0nZ+iKS1M7aPP2/I2E41216N+pEGAgw==",
       "path": "automatonymous/5.1.1",
       "hashPath": "automatonymous.5.1.1.nupkg.sha512"
+    },
+    "Cronos/0.7.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-aa2DY3qGBnwX7/jW4c17PyRlIeAtc5nYTlAPekc0113jcbBuz9vQkQaQ9NG+TNGlAj4esFxh8OuKUv4vmAODbw==",
+      "path": "cronos/0.7.1",
+      "hashPath": "cronos.0.7.1.nupkg.sha512"
     },
     "DnsClient/1.4.0": {
       "type": "package",

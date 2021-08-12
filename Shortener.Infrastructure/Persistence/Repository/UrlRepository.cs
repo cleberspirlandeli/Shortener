@@ -15,5 +15,8 @@ namespace Shortener.Infrastructure.Persistence.Repository
 
         public async Task<Url> GetUrlByKey(string keyUrl) =>
            await _dbSet.Find(db => db.KeyUrl == keyUrl).FirstOrDefaultAsync();
+
+        public async Task<List<Url>> GetUrlDayGreaterThanZero() =>
+            await _dbSet.Find(db => db.DayCounter > 0).ToListAsync();
     }
 }

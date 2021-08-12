@@ -21,3 +21,4 @@ C:\Users\simeu\source\repos\Alpha\Shortener.Domain\bin\Debug\net5.0\Shortener.Do
 C:\Users\simeu\source\repos\Alpha\Shortener.Domain\obj\Debug\net5.0\Shortener.Domain.dll
 C:\Users\simeu\source\repos\Alpha\Shortener.Domain\obj\Debug\net5.0\ref\Shortener.Domain.dll
 C:\Users\simeu\source\repos\Alpha\Shortener.Domain\obj\Debug\net5.0\Shortener.Domain.pdb
+C:\Users\simeu\source\repos\Alpha\Shortener.Domain\obj\Debug\net5.0\Shortener.Domain.csprojAssemblyReference.cache

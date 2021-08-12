@@ -50,6 +50,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Cronos": {
+              "target": "Package",
+              "version": "[0.7.1, )"
+            },
             "MassTransit.AspNetCore": {
               "target": "Package",
               "version": "[7.2.1, )"

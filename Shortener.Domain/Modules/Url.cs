@@ -25,50 +25,52 @@ namespace Shortener.Domain.Modules
 
         // Methods
         public string GetId() => Id.ToString();
-        public void ResetDayCounter() => DayCounter = 10;
-        public void ResetWeekCounter() => WeekCounter = 50;
-        public void ResetAmountCounter() => AmountCounter = 100;
-        public void ResetYearCounter() => YearCounter = 250;
+        public void ResetDayCounter() => DayCounter = 0;
+        public void ResetWeekCounter() => WeekCounter = 0;
+        public void ResetAmountCounter() => AmountCounter = 0;
+        public void ResetYearCounter() => YearCounter = 0;
+
         public void IncrementDayCounter() => DayCounter += 1;
         public void IncrementWeekCounter() => WeekCounter += 1;
         public void IncrementAmountCounter() => AmountCounter += 1;
         public void IncrementYearCounter() => YearCounter += 1;
 
-    private string GenerateUrl(string url)
-        => (url.StartsWith("https://") || url.StartsWith("http://")) ? url : $"http://{url}";
+        public void UpdateWeeklyTotalCounter() => WeekCounter += DayCounter;
 
-    private protected string GenerateKeyUrl()
-    {
-        var text = string.Empty;
+        private string GenerateUrl(string url)
+            => (url.StartsWith("https://") || url.StartsWith("http://")) ? url : $"http://{url}";
 
-        for (int i = 0; i < 10; i++)
+        private protected string GenerateKeyUrl()
         {
-            if (IsNumber())
+            var text = string.Empty;
+
+            for (int i = 0; i < 10; i++)
             {
-                text += GetRandomNumber();
+                if (IsNumber())
+                {
+                    text += GetRandomNumber();
+                }
+                else
+                {
+                    if (IsCapital()) text += GetRandomString().ToUpper();
+                    else text += GetRandomString().ToLower();
+                }
             }
-            else
-            {
-                if (IsCapital()) text += GetRandomString().ToUpper();
-                else text += GetRandomString().ToLower();
-            }
+
+            if (int.TryParse(text, out int _)) return GenerateKeyUrl();
+
+            return text;
         }
-
-        if (int.TryParse(text, out int _)) return GenerateKeyUrl();
-
-        return text;
+        private static Random random => new Random();
+        private bool IsNumber() => Randomic();
+        private bool IsCapital() => Randomic();
+        private bool Randomic() => random.Next(2) == 1;
+        private int GetRandomNumber() => random.Next(10);
+        private string GetRandomString()
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            return new string(Enumerable.Repeat(chars, 1)
+                .Select(str => str[random.Next(str.Length)]).ToArray());
+        }
     }
-
-    private static Random random => new Random();
-    private bool IsNumber() => Randomic();
-    private bool IsCapital() => Randomic();
-    private bool Randomic() => random.Next(2) == 1;
-    private int GetRandomNumber() => random.Next(10);
-    private string GetRandomString()
-    {
-        const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        return new string(Enumerable.Repeat(chars, 1)
-            .Select(str => str[random.Next(str.Length)]).ToArray());
-    }
-}
 }

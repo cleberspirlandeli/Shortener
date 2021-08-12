@@ -11,6 +11,7 @@ namespace Shortener.Services.DependencyInjection.ApplicationServiceInjection
         public static void RegisterBindings(IServiceCollection services, IConfiguration configuration)
         {
             services.AddScoped<IUrlApplicationService, UrlApplicationService>();
+            services.AddScoped<IUpdateCounterJobApplicationService, UpdateCounterJobApplicationService>();
 
             #region Redis
             services.AddSingleton<IConnectionMultiplexer>(c =>

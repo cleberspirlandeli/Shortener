@@ -1,11 +1,14 @@
 using Alpha.API.Configuration;
+using Alpha.API.ScheduledServices;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Shortener.Services.ApplicationService;
 using Shortener.Services.DependencyInjection;
+using System;
 
 namespace Alpha
 {
@@ -21,9 +24,20 @@ namespace Alpha
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //services.AddControllers();
+
+            //services.AddScoped<IUpdateCounterJobApplicationService, UpdateCounterJobApplicationService>();
+
+            //services.AddCronJob<UpdateDailyCounterCronJob>(c =>
+            //{
+            //    c.TimeZoneInfo = TimeZoneInfo.Local;
+            //    c.CronExpression = @"* * * * *";
+            //});
+
             services.WebApiConfiguration(Configuration);
 
             ConfigureBindingsDependencyInjection.RegisterBindings(services, Configuration);
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
